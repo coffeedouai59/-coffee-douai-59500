@@ -3,320 +3,618 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CoffeeShop 59500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080604">
+<title>Coffeeshop 59500</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-background:#101010;
-color:#fff;
-font-family:Arial,sans-serif
+:root {
+  --black: #080604;
+  --gold: #f4bd55;
+  --gold-light: #ffe5a2;
+  --gold-dark: #96601e;
+  --white: #fffaf0;
 }
 
-header{
-text-align:center;
-padding:30px 15px;
-background:linear-gradient(135deg,#17120b,#30200c,#100d09);
-border-bottom:2px solid #bd8c35
+* {
+  box-sizing: border-box;
 }
 
-header h1{
-font-family:Georgia,serif;
-color:#e8bd63;
-font-size:34px;
-margin:5px
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
 
-header p{
-color:#d9c7a2;
-letter-spacing:2px
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding-bottom: 110px;
+  overflow-x: hidden;
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 5%, #38220d 0%, transparent 36%),
+    radial-gradient(ellipse at 100% 45%, #30200e 0%, transparent 30%),
+    radial-gradient(ellipse at 0% 85%, #24170b 0%, transparent 35%),
+    #080604;
 }
 
-main{
-padding:20px;
-max-width:750px;
-margin:auto
+body::before,
+body::after {
+  content: "✧";
+  position: fixed;
+  z-index: -1;
+  color: #d99b39;
+  opacity: .12;
+  font-size: 240px;
+  pointer-events: none;
+  text-shadow: 0 0 35px #f4bd55;
 }
 
-h2{
-color:#e9bd65;
-font-family:Georgia,serif
+body::before {
+  top: 18%;
+  right: -100px;
 }
 
-.intro{
-text-align:center;
-color:#bbb;
-margin:20px 0 30px
+body::after {
+  bottom: 5%;
+  left: -100px;
 }
 
-.products{
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:14px
+.page {
+  width: 100%;
+  max-width: 760px;
+  margin: auto;
+  padding: 12px 16px 20px;
 }
 
-.product{
-background:#202020;
-border:1px solid #55401f;
-border-radius:14px;
-overflow:hidden
+/* EN-TÊTE */
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 20px 5px 16px;
+  margin-bottom: 16px;
 }
 
-.photo{
-height:135px;
-background:linear-gradient(140deg,#352719,#151515);
-display:flex;
-align-items:center;
-justify-content:center;
-color:#e8bd63;
-font-family:Georgia,serif;
-font-size:23px
+.hero::before,
+.hero::after {
+  content: "❋";
+  position: absolute;
+  top: 22px;
+  color: var(--gold);
+  font-size: clamp(35px, 10vw, 65px);
+  text-shadow: 0 0 15px #e7a735;
 }
 
-.product-video{
-display:block;
-width:100%;
-height:135px;
-object-fit:cover;
-background:#000
+.hero::before {
+  left: 0;
 }
 
-.info{
-padding:14px
+.hero::after {
+  right: 0;
 }
 
-.info h3{
-margin:0 0 8px;
-color:#e8bd63;
-font-size:17px
+.crown {
+  color: var(--gold-light);
+  font-size: 43px;
+  line-height: 1;
+  text-shadow: 0 0 15px #e7a735;
 }
 
-.category{
-font-size:12px;
-color:#aaa;
-min-height:30px
+.brand {
+  margin: 5px 0;
+  color: var(--gold-light);
+  font-family: Georgia, serif;
+  font-size: clamp(25px, 7vw, 43px);
+  letter-spacing: 1px;
+  text-shadow:
+    0 2px 3px #000,
+    0 0 15px #e5a43d;
 }
 
-.prices{
-border-top:1px solid #444;
-margin-top:12px;
-padding-top:10px;
-font-size:14px
+.brand-line {
+  width: 90%;
+  height: 2px;
+  margin: 10px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  box-shadow: 0 0 10px var(--gold);
 }
 
-.prices div{
-display:flex;
-justify-content:space-between;
-padding:4px 0
+.tagline {
+  color: #d9bd82;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin: 9px 0 0;
 }
 
-.price{
-color:#e8bd63;
-font-weight:bold
+/* PRODUITS */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
-.contact{
-margin-top:30px;
-padding:22px;
-background:#211b12;
-border:1px solid #80602e;
-border-radius:14px;
-text-align:center
+.product {
+  min-width: 0;
+  overflow: hidden;
+  border: 1.5px solid var(--gold);
+  border-radius: 19px;
+  background: linear-gradient(
+    160deg,
+    #21170d,
+    #100d09 60%,
+    #080706
+  );
+  box-shadow:
+    0 0 5px #d79b39,
+    0 5px 18px #000,
+    inset 0 0 12px #a36b2818;
 }
 
-.contact h2{
-margin-top:0
+.product-video {
+  display: block;
+  width: 100%;
+  height: clamp(125px, 30vw, 190px);
+  object-fit: cover;
+  background: #000;
 }
 
-.contact a{
-display:block;
-padding:14px;
-margin:12px 0;
-border-radius:9px;
-text-decoration:none;
-font-weight:bold
+.product-info {
+  padding: 11px 9px 14px;
+  text-align: center;
 }
 
-.telegram{
-background:#229ed9;
-color:white
+.product-category {
+  min-height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-size: clamp(12px, 3.4vw, 18px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .4px;
 }
 
-.snap{
-background:#f5d900;
-color:#111
+.product-name {
+  margin: 5px 0 10px;
+  color: var(--gold-light);
+  font-family: Georgia, serif;
+  font-size: clamp(14px, 3.5vw, 18px);
+  font-weight: bold;
 }
 
-footer{
-text-align:center;
-color:#888;
-padding:25px;
-font-size:12px
+.gold-rule {
+  height: 1px;
+  margin: 9px 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
 }
 
-@media(max-width:380px){
-main{padding:12px}
-.products{gap:9px}
-.info{padding:10px}
+.prices {
+  display: grid;
+  gap: 3px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  font-size: clamp(14px, 3.8vw, 19px);
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.amount {
+  min-width: 48px;
+  text-align: right;
+  color: white;
+}
+
+.dash {
+  color: var(--gold);
+  font-size: 21px;
+}
+
+.price {
+  min-width: 48px;
+  text-align: left;
+  color: var(--gold-light);
+  text-shadow: 0 0 8px #e9a94366;
+}
+
+/* CONTACT */
+
+.contact {
+  margin: 22px 0 15px;
+  padding: 13px 5px;
+  text-align: center;
+  border-top: 1px solid var(--gold-dark);
+  border-bottom: 1px solid var(--gold-dark);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #a36b2814,
+    transparent
+  );
+}
+
+.contact-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  margin: 9px 0;
+  font-size: clamp(14px, 4vw, 19px);
+  font-weight: bold;
+}
+
+.contact-line a {
+  color: white;
+  text-decoration: none;
+}
+
+.contact-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.location {
+  margin-top: 13px;
+  color: var(--gold-light);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* INFORMATIONS */
+
+.info {
+  margin: 15px 0;
+  color: #bba477;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* NAVIGATION BASSE */
+
+.bottom-nav {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: max(10px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(calc(100% - 28px), 720px);
+  padding: 8px 3px;
+  border: 1.5px solid var(--gold);
+  border-radius: 28px;
+  background: rgba(12, 10, 8, .96);
+  box-shadow:
+    0 0 15px #000,
+    0 0 15px #bd812c44;
+  backdrop-filter: blur(12px);
+}
+
+.bottom-nav a {
+  display: flex;
+  min-height: 54px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  border-right: 1px solid #b88b453d;
+}
+
+.bottom-nav a:last-child {
+  border-right: none;
+}
+
+.nav-icon {
+  color: var(--gold-light);
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* PETITS ÉCRANS */
+
+@media (max-width: 360px) {
+  .page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .products {
+    gap: 9px;
+  }
+
+  .product-info {
+    padding: 9px 5px 12px;
+  }
+
+  .price-row {
+    gap: 6px;
+  }
+
+  .hero::before,
+  .hero::after {
+    font-size: 34px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>COFFEE SHOP</h1>
-<p>59500 • PREMIUM</p>
-<div style="color:#e8bd63">
-Qualité • Détente • Bien-être
+<div class="page" id="menu">
+
+  <header class="hero">
+    <div class="crown">♛</div>
+    <h1 class="brand">COFFEESHOP 59500</h1>
+    <div class="brand-line"></div>
+    <p class="tagline">UNIVERS PREMIUM · 59 / 62</p>
+  </header>
+
+  <main id="catalogue">
+
+    <section class="products">
+
+      <!-- CALI USA : PERMANENT MARKER -->
+
+      <article class="product">
+
+        <video
+          class="product-video"
+          controls
+          playsinline
+          preload="metadata"
+          aria-label="Vidéo Permanent Marker">
+
+          <source
+            src="-6665683413381460583.mp4"
+            type="video/mp4">
+
+          Votre navigateur ne prend pas en charge la vidéo.
+
+        </video>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            CALI USA PREMIUM
+          </div>
+
+          <div class="product-name">
+            Permanent Marker
+          </div>
+
+          <div class="gold-rule"></div>
+
+          <div class="prices">
+            <div class="price-row">
+              <span class="amount">2 g</span>
+              <span class="dash">—</span>
+              <span class="price">20 €</span>
+            </div>
+
+            <div class="price-row">
+              <span class="amount">5 g</span>
+              <span class="dash">—</span>
+              <span class="price">50 €</span>
+            </div>
+
+            <div class="price-row">
+              <span class="amount">10 g</span>
+              <span class="dash">—</span>
+              <span class="price">90 €</span>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+
+      <!-- RESINE : PURPLE GREEN -->
+
+      <article class="product">
+
+        <video
+          class="product-video"
+          controls
+          playsinline
+          preload="metadata"
+          aria-label="Vidéo Purple Green">
+
+          <source
+            src="-9211763670692051746.mp4"
+            type="video/mp4">
+
+          Votre navigateur ne prend pas en charge la vidéo.
+
+        </video>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            RÉSINE PREMIUM
+          </div>
+
+          <div class="product-name">
+            Purple Green
+          </div>
+
+          <div class="gold-rule"></div>
+
+          <div class="prices">
+            <div class="price-row">
+              <span class="amount">2,5 g</span>
+              <span class="dash">—</span>
+              <span class="price">20 €</span>
+            </div>
+
+            <div class="price-row">
+              <span class="amount">5 g</span>
+              <span class="dash">—</span>
+              <span class="price">40 €</span>
+            </div>
+
+            <div class="price-row">
+              <span class="amount">10 g</span>
+              <span class="dash">—</span>
+              <span class="price">70 €</span>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+
+      <!-- SHOP HOLLANDAISE : G13 -->
+
+      <article class="product">
+
+        <video
+          class="product-video"
+          controls
+          playsinline
+          preload="metadata"
+          aria-label="Vidéo G13">
+
+          <source
+            src="-1449505202464334742.mp4"
+            type="video/mp4">
+
+          Votre navigateur ne prend pas en charge la vidéo.
+
+        </video>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            SHOP HOLLANDAISE PREMIUM
+          </div>
+
+          <div class="product-name">
+            G13
+          </div>
+
+          <div class="gold-rule"></div>
+
+          <div class="prices">
+            <div class="price-row">
+              <span class="amount">2,5 g</span>
+              <span class="dash">—</span>
+              <span class="price">20 €</span>
+            </div>
+
+            <div class="price-row">
+              <span class="amount">5 g</span>
+              <span class="dash">—</span>
+              <span class="price">40 €</span>
+            </div>
+
+            <div class="price-row">
+              <span class="amount">10 g</span>
+              <span class="dash">—</span>
+              <span class="price">80 €</span>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+      <div class="contact-line">
+        <span class="contact-icon">➤</span>
+        <a
+          href="https://t.me/coffedouai59"
+          target="_blank"
+          rel="noopener">
+          Telegram : @coffedouai59
+        </a>
+      </div>
+
+      <div class="contact-line">
+        <span class="contact-icon">♟</span>
+        <a
+          href="https://www.snapchat.com/add/calidry59500"
+          target="_blank"
+          rel="noopener">
+          Snapchat : calidry59500
+        </a>
+      </div>
+
+      <div class="location">
+        ⌖ 59/62&nbsp; • &nbsp;11h–23h
+      </div>
+
+    </section>
+
+    <div class="info" id="infos">
+      COFFEESHOP 59500
+    </div>
+
+  </main>
 </div>
-</header>
 
-<main>
 
-<div class="intro">
-Bienvenue chez CoffeeShop 59500<br>
-Découvrez notre catalogue.
-</div>
+<!-- MENU FIXE DU BAS -->
 
-<h2>Notre catalogue</h2>
+<nav class="bottom-nav" aria-label="Navigation principale">
 
-<div class="products">
+  <a href="#menu">
+    <span class="nav-icon">⌂</span>
+    <span>Menu</span>
+  </a>
 
-<!-- PRODUIT 1 -->
+  <a href="#catalogue">
+    <span class="nav-icon">🛒</span>
+    <span>Panier</span>
+  </a>
 
-<div class="product">
+  <a href="#contact">
+    <span class="nav-icon">➤</span>
+    <span>Contact</span>
+  </a>
 
-<div class="photo">
-<video class="product-video"
-controls
-playsinline
-preload="metadata"
-aria-label="Vidéo Cali USA">
+  <a href="#infos">
+    <span class="nav-icon">ⓘ</span>
+    <span>Infos</span>
+  </a>
 
-<source src="-6665683413381460583.mp4" type="video/mp4">
-
-Votre navigateur ne prend pas en charge la vidéo.
-
-</video>
-</div>
-
-<div class="info">
-
-<h3>Permanent Marker</h3>
-
-<div class="category">
-Cali USA Premium
-</div>
-
-<div class="prices">
-<div><span>2 g</span><span class="price">20 €</span></div>
-<div><span>5 g</span><span class="price">50 €</span></div>
-<div><span>10 g</span><span class="price">90 €</span></div>
-</div>
-
-</div>
-</div>
-
-<!-- PRODUIT 2 -->
-
-<div class="product">
-
-<div class="photo">
-<video class="product-video"
-controls
-playsinline
-preload="metadata"
-aria-label="Vidéo Shop NL">
-
-<source src="-9211763670692051746.mp4" type="video/mp4">
-
-Votre navigateur ne prend pas en charge la vidéo.
-
-</video>
-</div>
-
-<div class="info">
-
-<h3>G-13</h3>
-
-<div class="category">
-Shop hollandaise Premium
-</div>
-
-<div class="prices">
-<div><span>2,5 g</span><span class="price">20 €</span></div>
-<div><span>5 g</span><span class="price">40 €</span></div>
-<div><span>10 g</span><span class="price">80 €</span></div>
-</div>
-
-</div>
-</div>
-
-<!-- PRODUIT 3 -->
-
-<div class="product">
-
-<div class="photo">
-<video class="product-video"
-controls
-playsinline
-preload="metadata"
-aria-label="Vidéo Résine Premium">
-
-<source src="-1449505202464334742.mp4" type="video/mp4">
-
-Votre navigateur ne prend pas en charge la vidéo.
-
-</video>
-</div>
-
-<div class="info">
-
-<h3>Résine</h3>
-
-<div class="category">
-Résine Premium
-</div>
-
-<div class="prices">
-<div><span>2,5 g</span><span class="price">20 €</span></div>
-<div><span>5 g</span><span class="price">40 €</span></div>
-<div><span>10 g</span><span class="price">70 €</span></div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-<section class="contact">
-
-<h2>Nous contacter</h2>
-
-<p>Retrouvez-nous sur nos réseaux</p>
-
-<a class="telegram"
-href="https://t.me/coffedouai59">
-Telegram : @coffedouai59
-</a>
-
-<a class="snap"
-href="https://www.snapchat.com/add/calidry59500">
-Snapchat : calidry59500
-</a>
-
-</section>
-
-</main>
-
-<footer>
-COFFEE SHOP 59500
-</footer>
+</nav>
 
 </body>
 </html>
+
 
